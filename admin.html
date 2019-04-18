@@ -36,6 +36,15 @@
       )
 >>>>>>> 3d49d205ecd46addc2e596d567d6bd02c314483b
 
+var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
+provider.listAccounts().then(function (accounts) {
+    signer = provider.getSigner(accounts[0]);
+
+    initialize(ethers)
+    getMetamaskBalance()
+}
+)
+
 /**/</script>
 
     <title>PNG Digital Kina - dKina</title>
@@ -91,7 +100,7 @@
             <li class="scroll"> <a href="#about">Wallet</a> </li>
             <li class="scroll"> <a href="/load-unload/index.html">Load/Unload</a> </li>
             <li class="scroll active"> <a href="admin.html">Admin</a> </li>
-            <li class="scroll"> <div style="color:red;font-size:25px;" class="scroll" id="balance">Balance: 10,000</div> </li>
+            <li class="scroll"> <div style="color:red;font-size:25px;" class="scroll" id="balance"></div> </li>
             <!--<li class="scroll"> <a href="#team">Team</a> </li>-->
             <!--<li class="scroll"> <a href="#contact">Contact</a> </li>-->
           </ul>
