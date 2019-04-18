@@ -12,15 +12,17 @@
     </script>
     <script src="index.js"></script>
     <script>
-        //var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
-        //provider.listAccounts().then(function (accounts) {
-        //    signer = provider.getSigner(accounts[0]);
+        var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
+        provider.listAccounts().then(function (accounts) {
+            signer = provider.getSigner(accounts[0]);
 
-        //    initialize(ethers)
-        //}
-        //)
+            initialize(ethers)
+            getMetamaskBalance()
+        }
+        )
 
-        /**/</script>
+
+      </script>
 
     <title>PNG Digital Kina - dKina</title>
 
