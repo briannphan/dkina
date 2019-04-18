@@ -12,13 +12,14 @@
     </script>
     <script src="index.js"></script>
     <script>
-        //var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
-        //provider.listAccounts().then(function (accounts) {
-        //    signer = provider.getSigner(accounts[0]);
+      var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
+      provider.listAccounts().then(function (accounts) {
+          signer = provider.getSigner(accounts[0]);
 
-        //    initialize(ethers)
-        //}
-        //)
+          initialize(ethers)
+          getMetamaskBalance()
+      }
+      )
 
         /**/</script>
 
@@ -73,7 +74,7 @@
           <ul class="nav">
             <li class="scroll"><a href="#hme">About</a></li>
             <li class="scroll"> <a href="#about">Wallet</a> </li>
-            <li class="scroll"> <a href="load-unload.html">Load/Unload</a> </li>
+            <li class="scroll"> <a href="/load-unload/index.html">Load/Unload</a> </li>
             <li class="scroll active"> <a href="admin.html">Admin</a> </li>
             <li class="scroll"> <div style="color:red;font-size:25px;" class="scroll" id="balance">Balance: 10,000</div> </li>
             <!--<li class="scroll"> <a href="#team">Team</a> </li>-->
