@@ -825,7 +825,7 @@ async function CheckBalance() {
 async function getMetamaskBalance(){
   let balance = await dKinaContract.balanceOf(signer._address);
   balance = utils.formatUnits(balance,2)
-  document.getElementById("balance").innerHTML = "Balance: " + balance + " dK" ;
+  document.getElementById("balance").innerHTML = "Balance: K" + balance ;
 }
 let topic = ethers.utils.id("Transfer(address,address,uint256)");
 
