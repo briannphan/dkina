@@ -833,8 +833,8 @@ let topic = ethers.utils.id("Transfer(address,address,uint256)");
 
 const filter = {
     address: dKinaContractAddress,
-    fromBlock: 5422321,
-    toBlock: 6000000,
+    fromBlock: 	4227912,
+    toBlock: 4298598,
     topics: [topic]
 };
 
@@ -867,8 +867,9 @@ async function GetTrans()
             var blockNo = result[i].blockNumber
             provider.getBlock(blockNo).then(function (result) {
                 var timeValue = result.timestamp;
-
+                console.log(timeValue)
                 date = new Date(timeValue * 1000);
+
             }
                 )
 
