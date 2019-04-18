@@ -1,6 +1,6 @@
 // JavaScript source code
 var dKinaContract
-var dKinaContractAddress = '0xc1825b88c169eb94e53d83325e3a032d16443887'
+var dKinaContractAddress = '0x4E5792b92f610Ee0F398084eC2027DaDEaC94051'
 var signer
 var provider
 //var ethers = require('ethers');
@@ -822,6 +822,11 @@ async function CheckBalance() {
     document.getElementById("WalletBalance").value = dKinaBalance;
 }
 
+async function getMetamaskBalance(){
+  let balance = await dKinaContract.balanceOf(signer._address);
+  balance = utils.formatUnits(balance,2)
+  document.getElementById("balance").innerHTML = "Balance: " + balance ;
+}
 let topic = ethers.utils.id("Transfer(address,address,uint256)");
 
 
@@ -880,7 +885,7 @@ async function GetTrans()
 provider.getLogs(filter).then(function (result) {
     console.log(result.length)
     for (var i = 0; i < result.length; i++) {
-   
+
         var from = (result[i].topics[1])
         var to = (result[i].topics[2])
         var amount = (result[i].data)
@@ -897,7 +902,7 @@ provider.getLogs(filter).then(function (result) {
         console.log(amount)
 
     }
-    
+
 }
 
 );
