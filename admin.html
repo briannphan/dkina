@@ -11,7 +11,21 @@
             type="text/javascript">
     </script>
     <script src="index.js"></script>
+    <script src="admin.js"></script>
+
     <script>
+<<<<<<< HEAD
+        var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
+        provider.listAccounts().then(function (accounts) {
+           signer = provider.getSigner(accounts[0]);
+
+           initialize(ethers)
+           getMetamaskBalance();
+        }
+        )
+
+
+=======
       var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
       provider.listAccounts().then(function (accounts) {
           signer = provider.getSigner(accounts[0]);
@@ -20,8 +34,9 @@
           getMetamaskBalance()
       }
       )
+>>>>>>> 3d49d205ecd46addc2e596d567d6bd02c314483b
 
-        /**/</script>
+/**/</script>
 
     <title>PNG Digital Kina - dKina</title>
 
@@ -105,23 +120,6 @@
       <div class="container">
 
         <div class="row">
-          <div class="col-md-7 margin-top-30">
-            <div class="heading margin-bottom-20">
-              <h4>Get Balance</h4>
-              <h6 class="margin-bottom-10">Find out how much digital Kina exists in the ecosystem.</h6>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="ib-icon"> <i class="flaticon-smartphone"></i> </div>
-            <div class="ib-info">
-                <div id="totalKinaExist"></div>
-                <button id="btnTransfer" onclick="Transfer()" class="btn btn-inverse">Mint</button>
-                <br />
-            </div>
-          </div>
-        </div>
 
         <hr/>
 
@@ -137,9 +135,9 @@
             <div class="col-md-4">
               <div class="ib-icon"> <i class="flaticon-smartphone"></i> </div>
               <div class="ib-info">
-                   <input type="text" id="TransferToAddress" value="" class="txt txt-pad" placeholder="Transfer to Address" >
-                  <input type="text" id="TransferAmount" value="" class="txt txt-pad" placeholder="Amount to Transfer">
-                  <button id="btnTransfer" onclick="Transfer()" class="btn btn-inverse">Mint</button>
+                   <input type="text" id="mintAddress" value="" class="txt txt-pad" placeholder="Transfer to Address" >
+                  <input type="text" id="mintAmount" value="" class="txt txt-pad" placeholder="Amount to Transfer">
+                  <button id="mint" onclick="mint()" class="btn btn-inverse">Mint</button>
                   <br />
               </div>
             </div>
@@ -159,8 +157,8 @@
               <div class="col-md-4">
                 <div class="ib-icon"> <i class="flaticon-smartphone"></i> </div>
                 <div class="ib-info">
-                    <input type="text" id="TransferAmount" value="" class="txt txt-pad" placeholder="Amount to Burn">
-                    <button id="btnTransfer" onclick="Transfer()" class="btn btn-inverse">Burn</button>
+                    <input type="text" id="burnAmount" value="" class="txt txt-pad" placeholder="Amount to Burn">
+                    <button id="btnTransfer" onclick="burn()" class="btn btn-inverse">Burn</button>
                     <br />
                 </div>
               </div>
@@ -180,8 +178,8 @@
                 <div class="col-md-4">
                   <div class="ib-icon"> <i class="flaticon-smartphone"></i> </div>
                   <div class="ib-info">
-                       <input type="text" id="TransferToAddress" value="" class="txt txt-pad" placeholder="Address to blacklist" >
-                      <button id="btnTransfer" onclick="Transfer()" class="btn btn-inverse">Blacklist</button>
+                       <input type="text" id="blacklistAddress" value="" class="txt txt-pad" placeholder="Address to blacklist" >
+                      <button id="btnTransfer" onclick="blackList()" class="btn btn-inverse">Blacklist</button>
                       <br />
                   </div>
                 </div>
@@ -201,8 +199,8 @@
                   <div class="col-md-4">
                     <div class="ib-icon"> <i class="flaticon-smartphone"></i> </div>
                     <div class="ib-info">
-                         <input type="text" id="TransferToAddress" value="" class="txt txt-pad" placeholder="Address to Un-Blacklist" >
-                        <button id="btnTransfer" onclick="Transfer()" class="btn btn-inverse">Un-Blacklist</button>
+                         <input type="text" id="unblacklistAddress" value="" class="txt txt-pad" placeholder="Address to Un-Blacklist" >
+                        <button id="btnTransfer" onclick="unblackList()" class="btn btn-inverse">Un-Blacklist</button>
                         <br />
                     </div>
                   </div>
@@ -222,7 +220,7 @@
                     <div class="col-md-4">
                       <div class="ib-icon"> <i class="flaticon-smartphone"></i> </div>
                       <div class="ib-info">
-                          <button id="btnTransfer" onclick="Transfer()" class="btn btn-inverse">Pause</button>
+                          <button id="btnTransfer" onclick="pause()" class="btn btn-inverse">Pause</button>
                           <br />
                       </div>
                     </div>
@@ -242,7 +240,7 @@
                       <div class="col-md-4">
                         <div class="ib-icon"> <i class="flaticon-smartphone"></i> </div>
                         <div class="ib-info">
-                            <button id="btnTransfer" onclick="Transfer()" class="btn btn-inverse">Unpause</button>
+                            <button id="btnTransfer" onclick="unpause()" class="btn btn-inverse">Unpause</button>
                             <br />
                         </div>
                     </div>
@@ -262,8 +260,9 @@
                       <div class="col-md-4">
                         <div class="ib-icon"> <i class="flaticon-smartphone"></i> </div>
                         <div class="ib-info">
-                            <input type="text" id="TransferToAddress" value="" class="txt txt-pad" placeholder="Address of new minter" >
-                            <button id="btnTransfer" onclick="Transfer()" class="btn btn-inverse">Approve</button>
+                            <input type="text" id="newminterAddress" value="" class="txt txt-pad" placeholder="Address of new minter" >
+                            <input type="text" id="newminterAmount" value="" class="txt txt-pad" placeholder="Amount to Burn">
+                            <button id="btnTransfer" onclick"configureMinter()" class="btn btn-inverse">Approve</button>
                             <br />
                         </div>
                     </div>
