@@ -15,7 +15,7 @@
         var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
         provider.listAccounts().then(function (accounts) {
             signer = provider.getSigner(accounts[0]);
-
+            
             initialize(ethers)
             getMetamaskBalance()
         }

@@ -12,16 +12,13 @@
     </script>
     <script src="index.js"></script>
     <script>
-      var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
-      provider.listAccounts().then(function (accounts) {
-          signer = provider.getSigner(accounts[0]);
-
-          initialize(ethers)
-          getMetamaskBalance()
-      }
-      )
-
-        /**/</script>
+    var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'rinkeby');
+    provider.listAccounts().then(function (accounts) {
+       signer = provider.getSigner(accounts[0]);
+       initialize(ethers)
+       getMetamaskBalance();
+    })
+    </script>
 
     <title>PNG Digital Kina - dKina</title>
 
@@ -36,16 +33,7 @@
     <link href="css/ionicons.min.css" rel="stylesheet">
 
     <!-- JavaScripts -->
-    <script src="js/modernizr.js">
-      var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'ropsten');
-      provider.listAccounts().then(function (accounts) {
-          signer = provider.getSigner(accounts[0]);
-
-          initialize(ethers)
-          getMetamaskBalance()
-      }
-      )
-    </script>
+    <script src="js/modernizr.js"></script>
 
     <!-- Online Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900|Montserrat:300,400,500,600,700,800" rel="stylesheet">
@@ -85,10 +73,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="nav">
             <li class="scroll"><a href="#hme">About</a></li>
-            <li class="scroll"> <a href="#about">Wallet</a> </li>
+            <li class="scroll active"> <a href="#about">Wallet</a> </li>
             <li class="scroll"> <a href="/load-unload/index.html">Load/Unload</a> </li>
-            <li class="scroll active"> <a href="admin.html">Admin</a> </li>
-            <li class="scroll"> <div style="color:red;font-size:25px;" class="scroll" id="balance"></div> </li>
+            <li class="scroll"> <a href="admin.html">Admin</a> </li>
+            <li class="scroll"> <div style="color:red;font-size:25px;" class="scroll" id="balance">B</div> </li>
             <!--<li class="scroll"> <a href="#team">Team</a> </li>-->
             <!--<li class="scroll"> <a href="#contact">Contact</a> </li>-->
           </ul>
@@ -321,6 +309,34 @@
     </section>-->
 
     <!-- Development -->
+    <section class="dev-activ text-center padding-top-150 padding-bottom-150" id="activity">
+        <div class="container">
+            <div class="sm-intro">
+                <h2>Coin Minting</h2>
+                <p>Coin minting made simplier than ever ! </p>
+            </div>
+            <ul class="row margin-top-50 margin-bottom-50">
+
+                <!--<li class="col"> <i class="flaticon-rotate"></i> <span><span class="counter">4</span> hrs Ago</span>
+          <p>Last Update</p>
+        </li>-->
+                <!--<li class="col"><i class="flaticon-building"></i> <span><span class="counter">10</span> Days Ago</span>
+          <p>Last Block Found</p>
+        </li>-->
+                <!--<li class="col">
+                    <i class="flaticon-money-1"></i> <span><span class="counter">45057</span>+</span>
+                    <p>Contributions</p>
+                </li>-->
+                <!--<li class="col"><i class="flaticon-team"></i> <span  class="counter">80</span>
+          <p>Team Members</p>
+        </li>-->
+            </ul>
+            <!--<a href="#." class="btn">Start on GitHub</a> <a href="#." class="btn btn-inverse">White Paper</a> </div>-->
+            <input type="text" id="MintToAddress" value="" placeholder="Mint to Address" class="txt">
+            <input type="number" id="MintAmount" value="" placeholder="Amount to Mint" class="txt">
+            <button id="btnMint" onclick="Mint()" class="btn btn-inverse">Mint</button>
+         </div>
+</section>
 
     <!-- ABOUT -->
     <!--<section class="about light-bg">

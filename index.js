@@ -819,14 +819,20 @@ async function Transfer() {
 async function CheckBalance() {
     var WalletAddress = document.getElementById("WalletAddress").value;
     var dKinaBalance = await dKinaContract.balanceOf(WalletAddress);
+    dKinaBalance = ethers.utils.formatUnits(dKinaBalance,2);
+    dKinaBalance = ethers.utils.commify(dKinaBalance)
     document.getElementById("WalletBalance").value = dKinaBalance;
 }
 
 async function getMetamaskBalance(){
+  console.log("goping")
   let balance = await dKinaContract.balanceOf(signer._address);
   balance = utils.formatUnits(balance,2)
   balance = utils.commify(balance)
   document.getElementById("balance").innerHTML = "Balance: K " + balance ;
+  document.getElementById("balance1").innerHTML = "Balance: K " + balance ;
+  document.getElementById("balance2").innerHTML = "Balance: K " + balance ;
+
 }
 let topic = ethers.utils.id("Transfer(address,address,uint256)");
 
